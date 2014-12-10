@@ -1,0 +1,35 @@
+# Ejecutarlo en su propia ventana en lugar de usar el escritorio (requerido con nautilus)
+
+own_window yes
+
+# Parámetros para ver conky todo el tiempo
+own_window_type normal
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+
+# Usar doble buffering (reduce el parpadeo)
+double_buffer yes
+
+# Log en la consola
+out_to_console no 
+
+# Intervalo de actualización (segundos)
+update_interval 0
+
+# Dibujar sombras
+draw_shades no
+
+# Color por defecto
+#default_color white #darkblue #black #white 
+#own_window_colour white
+
+minimum_size 800 300
+
+# Separación de los bordes del escritorio
+gap_x 10
+gap_y 10
+
+# stuff after 'TEXT' will be formatted on screen
+
+TEXT
+#${offset 20}${image /home/pferrer/Imágenes/dvorak.png -s 800x300}

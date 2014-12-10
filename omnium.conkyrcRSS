@@ -1,0 +1,70 @@
+##
+#
+# UBUNTU-CONKY
+
+#
+
+# Ejecutarlo en su propia ventana en lugar de usar el escritorio (requerido con nautilus)
+
+own_window yes
+background yes
+
+# Parámetros para ver conky todo el tiempo
+own_window_type normal
+own_window_argb_visual yes
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+#Usar doble buffering (reduce el parpadeo)
+double_buffer yes
+
+# Adaptar a la ventana
+use_spacer left
+use_xft yes
+
+# Fuente Xft (solo si xft esta activado)
+xftfont Terminus:size=8
+
+# Transparencia del texto con Xft
+xftalpha 0.5
+
+# Log en la consola
+out_to_console no 
+
+# Intervalo de actualización (segundos)
+update_interval 60.0
+
+# Dibujar sombras
+draw_shades no
+
+# Propiedades del texto
+draw_outline no 
+draw_borders no
+uppercase no
+
+# Propiedades de los bordes
+draw_borders no
+border_inner_margin 1
+
+# Color por defecto
+default_color white #darkblue #black #white 
+own_window_colour white
+
+# Tamaño del buffer de texto en bytes
+text_buffer_size 256
+
+# Alineación del texto
+alignment top_right
+
+# Separación de los bordes del escritorio
+gap_x 25
+gap_y 10
+
+# stuff after 'TEXT' will be formatted on screen
+
+TEXT
+
+${offset 20}${color slate grey}${hr 1}
+${offset 20}${color slate grey}Repo Updates:${color ffffff}
+${offset 20}${rss http://jira/P20112012/timeline?ticket=on&repo-code=on&repo-doc=on&wiki=on&max=50&authors=&daysback=90&format=rss 1 item_titles 50 }
+${offset 20}${color slate grey}${hr 1}

@@ -1,0 +1,105 @@
+#
+#
+# UBUNTU-CONKY
+
+#
+
+# Ejecutarlo en su propia ventana en lugar de usar el escritorio (requerido con nautilus)
+
+own_window yes
+background yes
+
+# Parámetros para ver conky todo el tiempo
+own_window_type override
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+
+# Usar doble buffering (reduce el parpadeo)
+double_buffer yes
+
+# Adaptar a la ventana
+use_spacer right 
+use_xft yes
+
+# Fuente Xft (solo si xft esta activado)
+xftfont Radio space:size=9
+
+# Transparencia del texto con Xft
+xftalpha 0.5
+
+# Log en la consola
+out_to_console no 
+
+# Intervalo de actualización (segundos)
+update_interval 1.0
+
+# Dibujar sombras
+draw_shades no
+
+# Propiedades del texto
+draw_outline no 
+draw_borders no
+uppercase no
+
+minimum_size 50 50
+maximum_width 350
+
+# Propiedades de los bordes
+stippled_borders 1
+border_inner_margin 6
+border_width 2
+
+# Color por defecto
+default_color white #darkblue #black #white 
+own_window_colour white
+
+# Alineación del texto
+alignment top_left
+
+# Separación de los bordes del escritorio
+gap_x 0
+gap_y 10
+
+# stuff after 'TEXT' will be formatted on screen
+
+TEXT
+${offset 20}${color slate grey}${time %a, } ${color }${time %e %B %G}
+${offset 20}${font Radio space:size=35}${time %H:%M:%S}${font Radio space:size=8}
+${offset 20}${color slate grey}UpTime: ${color }$uptime
+${offset 20}${color slate grey}Kern:${color }$kernel
+${offset 20}${color slate grey}${hr 1}
+${offset 20}${color slate grey}CPU:${color } $cpu%
+${offset 20}${cpugraph 10,150 000000 ffffff}
+${offset 20}${color slate grey}Load: ${color }$loadavg
+${offset 20}${color slate grey}Processes: ${color }$processes  
+${offset 20}${color slate grey}Running:   ${color }$running_processes
+${offset 20}${color slate grey}${hr 1}
+${offset 20}${color slate grey}Highest CPU:
+${offset 20}${color #ddaa00} ${top name 1}${top_mem cpu 1}
+${offset 20}${color lightgrey} ${top name 2}${top cpu 2}
+${offset 20}${color lightgrey} ${top name 3}${top cpu 3}
+${offset 20}${color lightgrey} ${top name 4}${top cpu 4}
+${offset 20}${color slate grey}${hr 1}
+${offset 20}${color slate grey}Highest MEM:
+${offset 20}${color #ddaa00} ${top_mem name 1}${top_mem mem 1}
+${offset 20}${color lightgrey} ${top_mem name 2}${top_mem mem 2}
+${offset 20}${color lightgrey} ${top_mem name 3}${top_mem mem 3}
+${offset 20}${color lightgrey} ${top_mem name 4}${top_mem mem 4}
+${offset 20}${color slate grey}${hr 1}
+${offset 20}${color slate grey}MEM:  ${color } $memperc% $mem/$memmax
+${offset 20}${membar 3,150}
+${offset 20}${color slate grey}${hr 1}
+${offset 20}${color slate grey}ROOT:    ${color }${fs_free /}/${fs_size /}
+${offset 20}${fs_bar 3,150 /}
+${offset 20}${color slate grey}${hr 1}
+${offset 20}${color slate grey}LAN: ${color }${addr eth0}${goto 170}${offset 20}${color slate grey}LAN: ${color }${addr wlan0}
+${offset 20} Down: $color${downspeed eth0} Up: ${upspeed eth0}${goto 170}${offset 20} Down: $color${downspeed wlan0} Up: ${upspeed wlan0}
+${offset 20}${downspeedgraph eth0 15,75 000000 ff0000} ${upspeedgraph eth0 15,75 000000 00ff00}$color${goto 170}${offset 20}${downspeedgraph wlan0 15,75 000000 ff0000} ${upspeedgraph wlan0 15,75 000000 00ff00}$color 
+${offset 20}${color slate grey}${hr 1}
+${offset 20}${if_running mpd}
+${offset 20}$mpd_smart
+${offset 20}$mpd_album
+${offset 20}$mpd_status $mpd_elapsed/$mpd_length
+${offset 20}$endif
+${offset 20}${color slate grey}${hr 1}
