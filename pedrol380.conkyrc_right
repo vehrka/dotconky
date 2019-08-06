@@ -1,0 +1,45 @@
+conky.config = {
+own_window=true,
+background=true,
+own_window_class='Conky',
+own_window_type='override',
+own_window_transparent=true,
+own_window_hints='undecorated,below,sticky,skip_taskbar,skip_pager',
+maximum_width=500,
+double_buffer=true,
+use_spacer='right',
+use_xft=true,
+xftalpha=0.5,
+out_to_console=false,
+update_interval=1.0,
+draw_shades=false,
+draw_outline=false,
+draw_borders=false,
+uppercase=false,
+stippled_borders=1,
+border_inner_margin=6,
+border_width=2,
+own_window_colour='white',
+alignment='top_right',
+gap_x=10,
+gap_y=582,
+
+default_color='D8DEE9',
+
+color1="2E3440",
+color2="3B4252",
+color3="434C5E",
+color4="4C566A",
+
+color5="D8DEE9",
+color6="E5E9F0",
+color7="ECEFF4",
+
+color8="A3BE8C",
+}
+
+conky.text = [[
+${color8}${hr 2}$color
+${font Bitstream Vera Sans Mono:pixelsize=10}
+${execi 3600  curl -s "http://wttr.in/Sevilla+Spain?0Tqm" }
+]]
