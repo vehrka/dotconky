@@ -1,0 +1,80 @@
+conky.config = {
+    background=true,
+    own_window = true,
+    own_window_transparent = false,
+    own_window_argb_visual = true,
+    own_window_argb_value = 90,
+    own_window_type = 'override',
+    own_window_class='Conky',
+    own_window_hints='undecorated,below,sticky,skip_taskbar,skip_pager',
+    maximum_width=500,
+    double_buffer=true,
+    use_spacer='right',
+    use_xft=true,
+    font='DejaVu Sans Mono:size=10',
+    xftalpha=0.5,
+    out_to_console=false,
+    update_interval=1.0,
+    draw_shades=false,
+    draw_outline=false,
+    draw_borders=false,
+    uppercase=false,
+    stippled_borders=1,
+    border_inner_margin=6,
+    border_width=2,
+    own_window_colour='black',
+    alignment='top_right',
+    gap_x=10,
+    gap_y=57,
+
+    default_color='#D8DEE9',
+
+    color1="#2E3440",
+    color2="#ABB3C2",
+
+    color3="#434C5E",
+    color4="#4C566A",
+
+    color5="#D8DEE9",
+
+    color6="#BF8DA4",
+    color7="#A88EBF",
+    color8="#A3BE8C",
+}
+
+conky.text = [[
+${color8}CPU ${hr 2}$color
+${freq}${color6}MHz$color   ${color7}Load:$color ${loadavg}  ${color7}Tmp:$color${acpitemp}  ${color7}Up:$color${uptime_short}
+$cpubar
+${cpugraph 2E3440 D8DEE9}
+${color7}NAME$color               ${color6}CPU%$color   ${color7}NAME$color               ${color6}MEM%$color 
+${top name 1} ${top cpu 1}  ${top_mem name 1} ${top mem 1}
+${top name 2} ${top cpu 2}  ${top_mem name 2} ${top mem 2}
+${top name 3} ${top cpu 3}  ${top_mem name 3} ${top mem 3}
+${top name 4} ${top cpu 4}  ${top_mem name 4} ${top mem 4}
+
+${color8}Memory / Disk ${hr 2}$color
+${color7}RAM:$color $mem ${alignr}${color7}SWP:$color $swap
+${memgraph 2E3440 D8DEE9}
+${color6}Root$color ${fs_free /} / ${fs_size /} ${alignr} ${color6}Home$color ${fs_free /home} / ${fs_size /home}
+
+${color8}Battery ${hr 2}$color
+${battery_percent BAT0}% - ${battery_time BAT0} ${battery_bar 6  BAT0}
+
+${color8}Network  ${hr 2}$color
+${color7}LAN: $color${addr eth0} ${alignr}${color7}WLAN: $color${addr wlp0s20f3}
+${color6}Down: $color${downspeed eth0} ${color6}Up: $color${upspeed eth0} ${alignr} ${color6}Down: $color${downspeed wlp0s20f3} ${color6}Up: $color${upspeed wlp0s20f3}
+${downspeedgraph eth0 25,80 2E3440 D8DEE9} ${upspeedgraph eth0 25,80 2E3440 D8DEE9}$color ${alignr}${downspeedgraph wlp0s20f3 25,80 2E3440 D8DEE9} ${upspeedgraph wlp0s20f3 25,80 2E3440 D8DEE9}$color
+
+${color8}Weather ${hr 2}$color
+${alignc}${execi 3600  curl -s "http://wttr.in/Valencia+Spain?0Tqm" }${alignc}
+
+${color8}Calendar ${hr 2}$color
+${color2}Valencia: $color${time %H:%M}     ${alignr} ${color2}New York: $color${tztime America/New_York %H:%M}
+${color3}${hr 2}$color
+${alignc}${execi 3600 cal}
+
+${color8}Logs ${hr 2}$color
+${execi 30 journalctl -n 4 | awk '{print " ",$6,$7,$8,$9,$10,$11,$12,$13}'}
+
+]]
