@@ -72,7 +72,7 @@ ${alignc}${execi 3600  curl -s "http://wttr.in/Valencia+Spain?0Tqm" }${alignc}
 ${color8}Calendar ${hr 2}$color
 ${color2}Valencia: $color${time %H:%M}     ${alignr} ${color2}New York: $color${tztime America/New_York %H:%M}
 ${color3}${hr 2}$color
-${alignc}${execi 3600 cal}
+${execi 3600 cal}
 
 ${color8}Logs ${hr 2}$color
 ${execi 30 journalctl -n 4 | awk '{print " ",$6,$7,$8,$9,$10,$11,$12,$13}'}
