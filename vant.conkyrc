@@ -67,7 +67,8 @@ ${color6}Down: $color${downspeed eth0} ${color6}Up: $color${upspeed eth0} ${alig
 ${downspeedgraph eth0 25,80 2E3440 D8DEE9} ${upspeedgraph eth0 25,80 2E3440 D8DEE9}$color ${alignr}${downspeedgraph wlp0s20f3 25,80 2E3440 D8DEE9} ${upspeedgraph wlp0s20f3 25,80 2E3440 D8DEE9}$color
 
 ${color8}Weather ${hr 2}$color
-${alignc}${execi 3600  curl -s "http://wttr.in/Valencia+Spain?0Tqm" }${alignc}
+${texeci 1800 curl wttr.in/Valencia+Spain?0Tqm}
+${image $HOME/.config/conky/out.png -p 0,0}
 
 ${color8}Calendar ${hr 2}$color
 ${color2}Valencia: $color${time %H:%M}     ${alignr} ${color2}New York: $color${tztime America/New_York %H:%M}
